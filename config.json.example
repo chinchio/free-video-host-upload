@@ -2,7 +2,7 @@
     "upload_all_host": true,
     "thread": 5,
     "streamtape": {
-        "account": [
+        "accounts": [
             {
                 "username": "111",
                 "password": "111"
