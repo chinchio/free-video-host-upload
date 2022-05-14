@@ -165,13 +165,3 @@ class StreamtapeApi():
         req_url = "{base_url}/file/getsplash?login={login}&key={key}&file={file}"
         r = requests.get(req_url.format(base_url = self.base_url, login = self.login, key = self.key, file = id))
         return r.json()
-
-def main():
-    username = "***"
-    password = "***"
-    streamtape = Streamtape(login = username, key = password)
-
-
-if __name__ == "__main__":
-    main()
-
