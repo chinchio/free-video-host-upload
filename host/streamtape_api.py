@@ -78,12 +78,13 @@ class StreamtapeApi():
         r = requests.get(req_url.format(base_url = self.base_url, login = self.login, key = self.key, id = id))
         return r.json()
     
-    def list_folder_or_files(self, folder_or_file_id: str) -> json:
+    def list_folder_or_files(self, folder: str) -> json:
         """
         Shows the content of your folders
+        folder(str): folder id
         """
         req_url = "{base_url}/file/listfolder?login={login}&key={key}&folder={folder}"
-        r = requests.get(req_url.format(base_url = self.base_url, login = self.login, key = self.key, folder = folder_or_file_id))
+        r = requests.get(req_url.format(base_url = self.base_url, login = self.login, key = self.key, folder = folder))
         return r.json()
 
     def create_folder(self, name: str, pid: str) -> json:
