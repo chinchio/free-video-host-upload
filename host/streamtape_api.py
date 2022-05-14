@@ -1,7 +1,7 @@
 import requests
 import json
 
-class Streamtape():
+class StreamtapeApi():
     """
     reference: https://streamtape.com/api
     """
