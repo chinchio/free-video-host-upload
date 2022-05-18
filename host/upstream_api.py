@@ -1,5 +1,6 @@
 import requests
 import json
+from urllib.parse import urlencode
 
 class UpstreamApi():
     """
@@ -25,8 +26,15 @@ class UpstreamApi():
 
     # didn't implement upload file to server
 
-    def upload_by_url(self, url: str) -> json:
-        req_url = "{base_url}/api/upload/url?key={key}&url={url}"
+    def upload_by_url(self, url: str, fld_id: int = 0, cat_id: int = 0, file_public: bool = False, file_adult: bool = False, tags: str = "") -> json:
+        selection_query_dict = {
+            "fld_id": fld_id,
+            "cat_id": cat_id,
+            "file_public": file_public,
+            "file_adult": file_adult,
+            "tags": tags
+        }
+        req_url = "{base_url}/api/upload/url?key={key}&url={url}&" + urlencode(selection_query_dict)
         r = requests.get(req_url.format(base_url = self.base_url, key= self.key, url = url))
         return r.json()
     
