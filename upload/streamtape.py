@@ -57,7 +57,7 @@ class Streamtape():
         return folder_id
     
     # main_call
-    def remote_upload(self, remote_upload_url: str, headers: str, filename: str) -> json:
+    def remote_upload(self, remote_upload_url: str, headers: str = "", filename: str = "") -> json:
         folder_id: str = self._get_upload_folder_id()
 
         before_upload_response = self._ls_folder(folder_id)
